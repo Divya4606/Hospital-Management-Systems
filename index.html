@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System Workflow Diagram</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                        <path d="M12 5v14M5 12h14"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1>CareFlow</h1>
+                    <p class="subtitle">Interactive HMS Workflow Blueprint</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="theme-toggle" class="btn btn-secondary btn-icon" title="Toggle Light/Dark Mode">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </button>
+                <button id="btn-play-walkthrough" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-icon-svg">
+                        <polygon points="6 3 20 12 6 21 6 3"/>
+                    </svg>
+                    Play Walkthrough
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="app-main">
+            <!-- Left Side: Interactive Workflow Map -->
+            <section class="workflow-map-container">
+                <div class="container-header">
+                    <h2>Interactive Workflow Map</h2>
+                    <p>Click any stage below to inspect the database models, interface previews, and business logic.</p>
+                </div>
+                
+                <div class="workflow-scroll-pane">
+                    <div class="workflow-track" id="workflow-track">
+                        <!-- Connecting SVGs will be rendered here dynamically or statically -->
+                        <div class="svg-connections-container">
+                            <svg id="connections-svg" width="100%" height="100%"></svg>
+                        </div>
+
+                        <!-- START Node -->
+                        <div class="workflow-node node-start" id="node-start" data-step="0">
+                            <div class="node-badge">System Start</div>
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+                                </svg>
+                            </div>
+                            <div class="node-label">Start</div>
+                            <div class="node-indicator"></div>
+                        </div>
+
+                        <!-- STEP 1: Patient Registration -->
+                        <div class="workflow-node" id="node-registration" data-step="1">
+                            <div class="node-number">01</div>
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <line x1="19" y1="8" x2="19" y2="14"/>
+                                    <line x1="16" y1="11" x2="22" y2="11"/>
+                                </svg>
+                            </div>
+                            <div class="node-label">Patient Registration</div>
+                            <div class="node-summary">Create Secure Medical Identity</div>
+                            <div class="node-indicator"></div>
+                        </div>
+
+                        <!-- STEP 2: Doctor Management -->
+                        <div class="workflow-node" id="node-doctors" data-step="2">
+                            <div class="node-number">02</div>
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4.8 2.2c0-.7.6-1.2 1.2-1.2h12c.7 0 1.2.6 1.2 1.2V22c0 .6-.5 1.1-1.2 1.1H6c-.6 0-1.2-.5-1.2-1.1V2.2Z"/>
+                                    <path d="M12 5v14M8 12h8"/>
+                                </svg>
+                            </div>
+                            <div class="node-label">Doctor Management</div>
+                            <div class="node-summary">Profiles & Staff Allocation</div>
+                            <div class="node-indicator"></div>
+                        </div>
+
+                        <!-- STEP 3: Appointment Booking -->
+                        <div class="workflow-node" id="node-booking" data-step="3">
+                            <div class="node-number">03</div>
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                            </div>
+                            <div class="node-label">Appointment Booking</div>
+                            <div class="node-summary">Slot Allocation & Alerts</div>
+                            <div class="node-indicator"></div>
+                        </div>
+
+                        <!-- STEP 4: Medical Records Update -->
+                        <div class="workflow-node" id="node-records" data-step="4">
+                            <div class="node-number">04</div>
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                            </div>
+                            <div class="node-label">Medical Records Update</div>
+                            <div class="node-summary">Diagnosis & Care Tracking</div>
+                            <div class="node-indicator"></div>
+                        </div>
+
+                        <!-- STEP 5: Billing & Payment -->
+                        <div class="workflow-node" id="node-billing" data-step="5">
+                            <div class="node-number">05</div>
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <div class="node-label">Billing & Payment</div>
+                            <div class="node-summary">Invoice & Ledger Settlement</div>
+                            <div class="node-indicator"></div>
+                        </div>
+
+                        <!-- END Node -->
+                        <div class="workflow-node node-end" id="node-end" data-step="6">
+                            <div class="node-badge">Complete</div>
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <div class="node-label">End</div>
+                            <div class="node-indicator"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="controls-panel">
+                    <button id="btn-prev" class="btn btn-secondary" disabled>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-svg"><polyline points="15 18 9 12 15 6"/></svg>
+                        Previous Step
+                    </button>
+                    <span class="step-tracker">Step <span id="current-step-num">1</span> of 5</span>
+                    <button id="btn-next" class="btn btn-secondary">
+                        Next Step
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-svg"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Right Side: Details & Interactive Simulator -->
+            <section class="simulator-container">
+                <div class="simulator-card">
+                    <!-- Dynamic Title Bar -->
+                    <div class="simulator-header">
+                        <div class="header-info">
+                            <span class="badge" id="sim-badge">Module 01</span>
+                            <h3 id="sim-title">Patient Registration</h3>
+                        </div>
+                        <div class="status-indicator">
+                            <span class="status-pulse"></span>
+                            <span class="status-text">Active Simulator</span>
+                        </div>
+                    </div>
+
+                    <!-- Tabs to switch views (Overview vs Interactive Mockup vs DB Schema) -->
+                    <div class="simulator-tabs">
+                        <button class="tab-btn active" data-tab="interactive">Interactive Preview</button>
+                        <button class="tab-btn" data-tab="logic">Business Logic</button>
+                        <button class="tab-btn" data-tab="database">Schema & Data</button>
+                    </div>
+
+                    <!-- Tab Contents -->
+                    <div class="tab-content-container">
+                        
+                        <!-- TAB: Interactive Preview -->
+                        <div class="tab-pane active" id="tab-interactive">
+                            <!-- Injected Dynamically by JS -->
+                            <div id="interactive-preview-placeholder"></div>
+                        </div>
+
+                        <!-- TAB: Business Logic -->
+                        <div class="tab-pane" id="tab-logic">
+                            <div class="logic-flow-list">
+                                <ul id="logic-list">
+                                    <!-- Injected Dynamically -->
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- TAB: Schema & Data -->
+                        <div class="tab-pane" id="tab-database">
+                            <div class="code-editor-mock">
+                                <div class="editor-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                    <span class="file-name" id="db-filename">patient_schema.sql</span>
+                                </div>
+                                <pre><code id="db-code-content">
+                                    <!-- Injected Dynamically -->
+                                </code></pre>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="toast-icon">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            <span id="toast-message">Notification message here</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
